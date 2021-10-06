@@ -1,3 +1,19 @@
+def baza10(numar):
+    '''Transforma un numar din baza 10 in baza 2
+    param: un numar in baza 10
+    :return: numarul in baza 2'''
+    rez = 0
+    putere = 1
+    while numar!=0:
+         rest= numar % 2
+         rez = rez + rest*putere
+         putere = putere * 10
+         numar = numar//2
+    return rez
+
+
+
+
 def este_palindrom(numar):
     '''
     Verifica daca un numar este palindrom
@@ -56,10 +72,13 @@ def test_ultim_prim(x):
     assert ultim_prim(10)==7
     assert ultim_prim(3)==2
 
+
+
 def print_menu():
     print('1.Verifica daca un numar este palindrom')
     print('2.Gaseste ultim prim ')
-    print('3.Exit')
+    print('3.Tranforma din baza 10 in baza 2')
+    print('4.Exit')
 
 def main():
 
@@ -76,8 +95,10 @@ def main():
                 print('Nu exista numar prim mai mic decat ',2)
             else:
                 print('Numarul prim este',a)
-
         elif opt == 3:
+            numar = int(input('Dati numarul '))
+            print(baza10(numar))
+        elif opt == 4:
             break
 
         else:
